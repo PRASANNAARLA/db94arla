@@ -3,5 +3,5 @@ The purpose of this assignment is to become familiar with using pug templates to
 
 class: Lounge. Attributes: loungename,loungelocation,loungecapacity.
 
-heroku hosted at : https://wab94arla.herokuapp.com/
+heroku hosted at : https://db94arla.herokuapp.com/
 
