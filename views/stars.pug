@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  - let rows=Number(query.rows);let cols=Number(query.cols)
+  - if(!Number.isInteger(rows) || !Number.isInteger(cols)){
+      p(style="color:red;font-weight:bolder") Rows and columns should be Integer
+  - }
+  -  if(!(rows>=1 && rows<5)){
+        p(style="color:red;font-weight:bolder") Rows should be in range 1 to 4
+  - }
+  -  if(!(cols>=1 && cols<5)){
+        p(style="color:red;font-weight:bolder") Cols should be in range 1 to 4
+  - }
+  - if((rows>=1 && rows<5)&&(cols>=1 && cols<5)) {
+    table(id="outer" class="table table-striped table-responsive")
+        - for(let i=0;i<rows;i++){
+            tr#middle
+                - for(let j=0;j<cols;j++){
+                    td= i+j
+                - }
+        - }
+  - }

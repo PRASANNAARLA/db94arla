@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+        - let lounges=[{loungename:"Gateway",lounge_location:"Texas",lounge_capacity:"500"},{loungename:"Novotel",lounge_location:"Kansas",lounge_capacity:"800"},{loungename:"Holiday Inn",lounge_location:"Maryville",lounge_capacity:"300"}]
+        div(class="container-fluid mt-3")
+        div(class="row")
+            each lounge,index in lounges
+                div(class="col-sm-2 bg-dark m-1 p-3" onclick=`buy(${index})`) #{lounge.loungename} - #{lounge.lounge_location} - #{lounge.lounge_capacity}
+        script.
+
+            function buy(itemNo)
+            {
+                alert(`You purchased Item ${itemNo+1}`)
+            }

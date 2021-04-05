@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} arla
+  button(type="button",onclick="update()" class="btn btn-success") Click Here!!
+  div(id="target") clickme
+  script.
+    var client_count=0;
+    function update() {
+      client_count++;
+      document.getElementById("target").innerHTML=`Value now ${client_count}`
+    }
+  a(href="/palace") go to palaces
