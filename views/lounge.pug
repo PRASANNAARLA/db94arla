@@ -2,7 +2,8 @@ extends layout
 
 block content
     h1= title
-        - let lounges=[{loungename:"Gateway",lounge_location:"Texas",lounge_capacity:"500"},{loungename:"Novotel",lounge_location:"Kansas",lounge_capacity:"800"},{loungename:"Holiday Inn",lounge_location:"Maryville",lounge_capacity:"300"}]
+        //- let lounges=[{loungename:"Gateway",lounge_location:"Texas",lounge_capacity:"500"},{loungename:"Novotel",lounge_location:"Kansas",lounge_capacity:"800"},{loungename:"Holiday Inn",lounge_location:"Maryville",lounge_capacity:"300"}]
+        - let lounges = results 
         div(class="container-fluid mt-3")
         div(class="row")
             each lounge,index in lounges
