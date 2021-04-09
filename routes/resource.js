@@ -18,3 +18,5 @@ router.get('/resource/lounges/:id', lounge_controller.lounge_detail);
 // GET request for list of all lounge items.
 router.get('/resource/lounges', lounge_controller.lounge_list);
 module.exports = router;
+// GET request for one lounge.
+router.get('/lounges/:id', lounge_controller.lounge_detail);
