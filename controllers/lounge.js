@@ -39,9 +39,9 @@ exports.lounge_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: lounge delete DELETE ' + req.params.id);
 };
 // Handle lounge update form on PUT.
-exports.lounge_update_put = function(req, res) {
- res.send('NOT IMPLEMENTED: lounge update PUT' + req.params.id);
-};
+// exports.lounge_update_put = function(req, res) {
+//  res.send('NOT IMPLEMENTED: lounge update PUT' + req.params.id);
+// };
 
 // VIEWS
 // Handle a show all view
@@ -63,5 +63,22 @@ exports.lounge_detail = async function(req, res) {
     } catch (error) {
         res.status(500)
         res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+};
+// Handle Lounge update form on PUT.
+exports.lounge_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await lounge.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.loungename) toUpdate.loungename = req.body.loungename;
+        if(req.body.lounge_location) toUpdate.lounge_location = req.body.lounge_location;
+        if(req.body.lounge_capacity) toUpdate.lounge_capacity = req.body.lounge_capacity;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
     }
 };
