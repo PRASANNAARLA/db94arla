@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    h1= title
+
+    if (toShow == null)
+        h2 No instance to delete
+    else
+        - let costumeid = toShow._id
+        - let loungename = toShow.loungename
+        - let lounge_location = toShow.lounge_location
+        - let lounge_capacity = toShow.lounge_capacity
+        - let actionid = "/resource/resource/lounges/" + costumeid
+        script let actionid = "#{actionid}"
+        div
+            div.row
+                div(class='costumeAttr mr-3') Lounges ID is:
+                div #{costumeid}
+            div.row
+                div(class='costumeAttr mr-3') loungename:
+                div #{loungename}
+            div.row
+                div(class='costumeAttr mr-3') lounge_location is:
+                div #{lounge_location}
+            div.row
+                div(class='costumeAttr mr-3') lounge_capacity is:
+                div #{lounge_capacity}
+
+        button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+        button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+    script.
+        function cancel() {
+            // Go back to the home page for the costume collection
+            window.location.href='/lounges'
+        }
+    script.
+        function deleteOnid() {
+            console.log("starting delete")
+            // delete first
+            fetch(actionid, {
+                method: 'DELETE'      // Don't need a body for the delete
+            }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+                alert("Delete succeded")
+                window.location.href='/lounges'
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Delete failed " + error )
+            });
+        }
+
+
+

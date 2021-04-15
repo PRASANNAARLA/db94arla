@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  - let loungeid = toShow._id
+  - let loungename = toShow.loungename
+  - let lounge_location = toShow.lounge_location
+  - let lounge_capacity = toShow.lounge_capacity
+  div
+    div.row
+      div(class='costumeAttr mr-3') Lounge ID is:
+      div #{loungeid}
+    div.row
+      div(class='costumeAttr mr-3') loungename is:
+      div #{loungename}
+    div.row
+      div(class='costumeAttr mr-3') lounge_location is:
+      div #{lounge_location}
+    div.row
+      div(class='costumeAttr mr-3') lounge_capacityis:
+      div #{lounge_capacity}
+
+
+
