@@ -3,23 +3,26 @@ extends layout
 block content
   h1= title
 
-  - let loungeid = toShow._id
-  - let loungename = toShow.loungename
-  - let lounge_location = toShow.lounge_location
-  - let lounge_capacity = toShow.lounge_capacity
-  div
-    div.row
-      div(class='costumeAttr mr-3') Lounge ID is:
-      div #{loungeid}
-    div.row
-      div(class='costumeAttr mr-3') loungename is:
-      div #{loungename}
-    div.row
-      div(class='costumeAttr mr-3') lounge_location is:
-      div #{lounge_location}
-    div.row
-      div(class='costumeAttr mr-3') lounge_capacityis:
-      div #{lounge_capacity}
+  if (toShow == null)
+      h2 No instance to delete
+  else
+      - let loungeid = toShow._id
+      - let loungename = toShow.loungename
+      - let lounge_location = toShow.lounge_location
+      - let lounge_capacity = toShow.lounge_capacity
+      div
+        div.row
+          div(class='costumeAttr mr-3') Lounge ID is:
+          div(class="loungeitem") #{loungeid}
+        div.row
+          div(class='costumeAttr mr-3') loungename is:
+          div(class="loungeitem") #{loungename}
+        div.row
+          div(class='costumeAttr mr-3') lounge_location is:
+          div(class="loungeitem") #{lounge_location}
+        div.row
+          div(class='costumeAttr mr-3') lounge_capacityis:
+          div(class="loungeitem") #{lounge_capacity}
 
 
 

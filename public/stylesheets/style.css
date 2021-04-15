@@ -10,4 +10,16 @@ a {
   background-color: aquamarine;
   width: 120px;
 }
+.loungeitem{
+  margin: 4px;
+  padding: 15px;
+  justify-content:center;
+  font-weight: 800;
+  background-color:rgb(198, 182, 255);
+  border-radius: 3px;
+}
 
+.loungeitem:hover{
+  background-color: rgb(250, 3, 265);
+  color: rgb(31, 36, 36);
+}
