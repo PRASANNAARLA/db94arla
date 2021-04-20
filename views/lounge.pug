@@ -5,12 +5,14 @@ block content
         //- let lounges=[{loungename:"Gateway",lounge_location:"Texas",lounge_capacity:"500"},{loungename:"Novotel",lounge_location:"Kansas",lounge_capacity:"800"},{loungename:"Holiday Inn",lounge_location:"Maryville",lounge_capacity:"300"}]
         - let lounges = results 
         div(class="container-fluid mt-3")
-        div(class="row")
+        div(class="row" "m-1 ")
             each lounge,index in lounges
+             - let destination = `dispatch(\"/lounges/update?id=${lounge._id}\")`
                 div(class="col-sm-2 bg-dark m-1 p-3" onclick=`buy(${index})`) #{lounge.loungename} - #{lounge.lounge_location} - #{lounge.lounge_capacity}
+                 button.btn( class="btn-primary ml-1", onclick= destination) Update
         script.
-
-            function buy(itemNo)
-            {
-                alert(`You purchased Item ${itemNo+1}`)
+             function dispatch(path){
+                window.location.href=path
             }
+
+            
